@@ -74,25 +74,6 @@
   }
 })();
 
-// Attach contact click tracking (was inside DOMContentLoaded)
-(function(){
-  // 📞 زر الاتصال
-  document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
-    el.addEventListener("click", function () {
-      if (window.ttq) {
-        ttq.track('Contact', { method: 'phone' });
-      }
-    });
-  });
 
-  // 💬 زر واتساب
-  document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
-    el.addEventListener("click", function () {
-      if (window.ttq) {
-        ttq.track('Contact', { method: 'whatsapp' });
-      }
-    });
-  });
-})();
 
 
