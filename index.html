@@ -167,9 +167,32 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       <div>© <span id="year"></span> جميع الحقوق محفوظة – الاخلاص كلين</div>
     </footer>
   </main>
+  <script>
+  // Attach contact click tracking (was inside DOMContentLoaded)
+(function(){
+  // 📞 زر الاتصال
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+    el.addEventListener("click", function () {
+      if (window.ttq) {
+        ttq.track('Contact', { method: 'phone' });
+      }
+    });
+  });
+
+  // 💬 زر واتساب
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+    el.addEventListener("click", function () {
+      if (window.ttq) {
+        ttq.track('Contact', { method: 'whatsapp' });
+      }
+    });
+  });
+})();
+    </script>
   <script src="main.js"></script>
 </body>
 </html>
+
 
 
 
